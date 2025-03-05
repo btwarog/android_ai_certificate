@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Pin a specific domain -->
+    <domain-config>
+        <domain includeSubdomains="true">example.com</domain>
+        <pin-set>
+            <!-- Example hash, replace with the actual hash of your certificate -->
+            <pin digest="SHA-256">YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=</pin>
+            <!-- Backup pin for certificate rotation -->
+            <pin digest="SHA-256">YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=</pin>
+        </pin-set>
+    </domain-config>
+    
+    <!-- Default configuration for all other connections -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
